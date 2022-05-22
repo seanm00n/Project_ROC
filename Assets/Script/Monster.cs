@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Vector2 loc;
+    int ap;
+    int hp;
+    public Monster()
+    {
+        this.ap = 10;
+        this.hp = 100;
+    }
+    public void Attack()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Move()
     {
-        
+
     }
 }
