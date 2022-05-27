@@ -16,8 +16,10 @@ public class CharacterMovement : MonoBehaviour
     {
         Move();
     }
+
     void Move()
     {
+        //ÁÂ¿ì ÀÌµ¿
         float x = Input.GetAxis("Horizontal");
         Vector2 vec = new Vector2();
         vec += new Vector2(x * characterSpeed, characterRigid.velocity.y);
