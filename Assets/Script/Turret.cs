@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    float timer;
-    int waitingTime;
-    public GameObject src;
+    public GameObject bulletPrefab;
+
+    private float spawnRate = 3f;
+    private float elapsedTimes = 0f;
+
     void Start()
     {
-        timer = 0.0f;
-        waitingTime = 2;
-    }
 
-    // Update is called once per frame
+    }
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer > waitingTime)
+        elapsedTimes += Time.deltaTime;
+        if (spawnRate <= elapsedTimes)
         {
-            timer = 0;
-            GameObject instance = Instantiate(src, transform.position, transform.rotation);
-            Destroy(instance, 2);
-            //2초마다 생성, 2초 뒤 삭제
+            elapsedTimes = 0f;
+
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            //bullet.transform.LookAt(target);
         }
-        
     }
 }

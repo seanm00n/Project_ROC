@@ -5,13 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Rigidbody2D bulletRigid;
-    public int bulletSpeed = 0;
+    public float bulletSpeed = 8f;
     
     void Start()
     {
+        bulletRigid = GetComponent<Rigidbody2D>();
+        bulletRigid.velocity = transform.forward * bulletSpeed;
+        Destroy(gameObject, 3f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -20,5 +22,17 @@ public class Bullet : MonoBehaviour
     {
         Vector2 vec = new Vector2(bulletSpeed, 0);
         bulletRigid.velocity = vec;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Monster monster = collision.GetComponent<Monster>();
+        if(collision.tag == "Monster")
+        {
+            if (monster != null)
+            {
+                //monster.Hit();
+            }
+        }
     }
 }
