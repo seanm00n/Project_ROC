@@ -6,11 +6,9 @@ public class Monster : MonoBehaviour
 {
     public Rigidbody2D monsterRigid;
     public float monsterSpeed = 5f;
+    public float monsterHP = 10f;
+    public float monsterAP = 2f;
     private bool isEncounter = false;
-    void Start()
-    {
-
-    }
     void Update()
     {
         Move();//¿Ãµø

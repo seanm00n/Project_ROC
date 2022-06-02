@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public GameObject bulletPrefab;
-
+    public float turretHP = 10f;
     private float spawnRate = 3f;
     private float elapsedTimes = 0f;
 

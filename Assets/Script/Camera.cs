@@ -12,7 +12,7 @@ public class Camera : MonoBehaviour
     }
 
  
-    void Update()
+    void LateUpdate()
     {
         self.position = new Vector3(target.position.x, 0,-10);
         //카메라 위치를 캐릭터 쪽으로

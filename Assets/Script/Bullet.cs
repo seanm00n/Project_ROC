@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public Rigidbody2D bulletRigid;
     public float bulletSpeed = 8f;
-    
+    public float bulletAP = 2f;
     void Start()
     {
         bulletRigid = GetComponent<Rigidbody2D>();
