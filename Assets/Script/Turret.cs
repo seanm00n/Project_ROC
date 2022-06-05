@@ -9,19 +9,21 @@ public class Turret : MonoBehaviour
     private float spawnRate = 3f;
     private float elapsedTimes = 0f;
 
-    void Start()
-    {
-
-    }
     void Update()
     {
+        launchBullet();
+        checkHP();
+    }
+    void launchBullet () {
         elapsedTimes += Time.deltaTime;
-        if (spawnRate <= elapsedTimes)
-        {
+        if (spawnRate <= elapsedTimes) {
             elapsedTimes = 0f;
-
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            //bullet.transform.LookAt(target);
+        }
+    }
+    void checkHP () {
+        if (turretHP <= 0) {//»ç¸ÁÃ³¸®
+            Destroy(gameObject);
         }
     }
 }

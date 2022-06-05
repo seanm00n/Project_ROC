@@ -31,7 +31,8 @@ public class Bullet : MonoBehaviour
         {
             if (monster != null)
             {
-                //monster.Hit();
+                monster.GetComponent<Monster>().monsterHP -= bulletAP;
+                Destroy(gameObject);
             }
         }
     }
