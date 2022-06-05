@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     {
         Move();
         buildTurret();
+        Attack();
     }
 
     void Move()
@@ -54,5 +55,15 @@ public class Player : MonoBehaviour
         {
             GameObject turret = Instantiate(turretPrefab,transform.position,transform.rotation);
         }
+    }
+    void Attack () {
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            GetComponent<Animator>().SetBool("Throw",true);
+        }
+        //시간이 지나면 끝나도록
+        //GetComponent<Animator>().SetBool("Throw", false);
+    }
+    void Throw () {
+
     }
 }
