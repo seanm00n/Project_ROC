@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8901110281525682165}
   m_Layer: 3
   m_Name: Barricade01
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48b6e30a1613214ba00c56a87536d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baricadeHP: 10
+  barricadeHP: 10

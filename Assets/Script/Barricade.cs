@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Barricade : MonoBehaviour
 {
-    public float baricadeHP = 10f;
+    public float barricadeHP = 10f;
 
     void Update()
     {
         checkHP();
     }
     void checkHP () {
-        if (baricadeHP <= 0) {//荤噶贸府
+        if (barricadeHP <= 0) {//荤噶贸府
             Destroy(gameObject);
         }
     }

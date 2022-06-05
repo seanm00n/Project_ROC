@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 21845829732226331}
   m_Layer: 3
   m_Name: Bullet04
-  m_TagString: Bullet
+  m_TagString: cAttackCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,3 +149,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletRigid: {fileID: 21845829732226324}
   bulletSpeed: 5
+  bulletAP: 2

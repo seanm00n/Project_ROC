@@ -8,6 +8,9 @@ TagManager:
   - Turret
   - Monster
   - Bullet
+  - cAttackCollider
+  - mAttackCollider
+  - Barricade
   layers:
   - Default
   - TransparentFX
