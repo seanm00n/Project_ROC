@@ -65,6 +65,8 @@
     <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\cAttackCollider.cs" />
     <Compile Include="Assets\Script\mAttackCollider.cs" />
+    <Compile Include="Assets\Script\Gold.cs" />
+    <Compile Include="Assets\Script\UIText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

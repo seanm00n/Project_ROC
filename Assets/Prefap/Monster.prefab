@@ -221,6 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterRigid: {fileID: 4683441967690663945}
+  GoldPrefab: {fileID: 8066146335155099116, guid: 563806f2efd68f8418e75a242fdab375,
+    type: 3}
   animator: {fileID: 1548503399}
   monsterSpeed: 3
   monsterHP: 10

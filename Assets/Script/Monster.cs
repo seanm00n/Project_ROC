@@ -5,6 +5,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     public Rigidbody2D monsterRigid;
+    public GameObject GoldPrefab;
     public Animator animator;
     public float monsterSpeed = 5f;
     public float monsterHP = 10f;
@@ -29,6 +30,7 @@ public class Monster : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
                 animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
                 Destroy(gameObject);
+                GameObject gold = Instantiate(GoldPrefab,transform.position, transform.rotation);
             }
         }
     }
