@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public GameObject barricatePrefab02;//방어물
     public GameObject barricatePrefab03;//방어물
     public GameObject barricatePrefab04;//방어물
-
+    public Animator animator;
     public float charSpeed = 5f;
     public float charAP = 4f;
     public float charHP = 20f;
@@ -127,8 +127,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z)) {
             GetComponent<Animator>().SetBool("Attack",true);
         }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
+            Debug.Log("Current State Name 애니메이션 종료.");
+            GetComponent<Animator>().SetBool("Attack", false);
+        }
         //시간이 지나면
-        //GetComponent<Animator>().SetBool("Attack", false);
+        
     }
     void Throw () {
 

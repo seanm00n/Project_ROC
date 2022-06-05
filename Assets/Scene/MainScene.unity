@@ -1402,6 +1402,7 @@ MonoBehaviour:
     type: 3}
   barricatePrefab04: {fileID: 1065964956577389901, guid: acd445e8a11b44f4890d5774cb8b9f56,
     type: 3}
+  animator: {fileID: 435924678}
   charSpeed: 5
   charAP: 4
   charHP: 20
