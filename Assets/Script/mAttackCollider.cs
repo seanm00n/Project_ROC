@@ -16,5 +16,8 @@ public class mAttackCollider : MonoBehaviour {
         if (collision.gameObject.tag == "Barricade") {
             collision.gameObject.GetComponent<Barricade>().barricadeHP -= monster.monsterAP;
         }
+        if (collision.gameObject.tag == "Nexus") {
+            collision.gameObject.GetComponent<Nexus>().nexusHP -= monster.monsterAP;
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gold : MonoBehaviour
 {
     public int goldValue;
-    public GameObject gameManager;//다른 방식으로 가져와야함
+    GameObject gameController;
     void Start()
     {
         
@@ -15,8 +15,9 @@ public class Gold : MonoBehaviour
         
     }
     private void OnCollisionEnter2D (Collision2D collision) {
+        gameController = GameObject.Find("GameController");
         if (collision.gameObject.tag == "Player") {
-            gameManager.GetComponent<GameController>().gold += goldValue;
+            gameController.GetComponent<GameController>().gold += goldValue;
             Destroy(gameObject);
         }
     }

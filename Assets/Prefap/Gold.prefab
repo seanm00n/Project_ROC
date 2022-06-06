@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldValue: 5
-  gameManager: {fileID: 0}
 --- !u!50 &1331431927
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +147,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!95 &1594240879
 Animator:
   serializedVersion: 4

@@ -38,22 +38,32 @@ public class Monster : MonoBehaviour
         if (collision.gameObject.tag == "attackCollider") {
             Hit();
         }
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Turret" || collision.gameObject.tag == "Barricade") {
+        if (collision.gameObject.tag == "Player" || 
+            collision.gameObject.tag == "Turret" || 
+            collision.gameObject.tag == "Barricade" ||
+            collision.gameObject.tag == "Nexus") {
             Attack();
         }
     }
+    private void OnCollisionExit2D (Collision2D collision) {
+        isEncounter = false;
+    }
     void Hit () {
+        isEncounter = true;
         GetComponent<Animator>().SetBool("Hit", true);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
             GetComponent<Animator>().SetBool("Hit", false);
+            isEncounter = false;
         }
     }
     void Attack () {
+        isEncounter = true;
         GetComponent<Animator>().SetBool("Attack", true);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
             GetComponent<Animator>().SetBool("Attack", false);
+            isEncounter = false;
         }
     }
 }

@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D charRigid;//º»ÀÎ rigid
-    public GameObject turretPrefab01;//Æ÷Å¾
-    public GameObject turretPrefab02;//Æ÷Å¾
-    public GameObject turretPrefab03;//Æ÷Å¾
-    public GameObject turretPrefab04;//Æ÷Å¾
-    public GameObject barricatePrefab01;//¹æ¾î¹°
-    public GameObject barricatePrefab02;//¹æ¾î¹°
-    public GameObject barricatePrefab03;//¹æ¾î¹°
-    public GameObject barricatePrefab04;//¹æ¾î¹°
+    public Rigidbody2D charRigid;//ï¿½ï¿½ï¿½ï¿½ rigid
+    public GameObject turretPrefab01;//ï¿½ï¿½Å¾
+    public GameObject turretPrefab02;//ï¿½ï¿½Å¾
+    public GameObject turretPrefab03;//ï¿½ï¿½Å¾
+    public GameObject turretPrefab04;//ï¿½ï¿½Å¾
+    public GameObject barricatePrefab01;//ï¿½ï¿½î¹°
+    public GameObject barricatePrefab02;//ï¿½ï¿½î¹°
+    public GameObject barricatePrefab03;//ï¿½ï¿½î¹°
+    public GameObject barricatePrefab04;//ï¿½ï¿½î¹°
+    public GameObject colliderPrefab;
+    GameObject colliderObject;
     public Animator animator;
     public GameController gameController;
     public float charSpeed = 5f;
     public float charAP = 4f;
     public float charHP = 20f;
     public float charFixP = 2f;
+    
     private float coolTime01 = 0f;
     private float coolTime02 = 0f;
+    private float coolTime03 = 0f;
     private Vector3 pos;
 
     void Update()
@@ -29,6 +33,7 @@ public class Player : MonoBehaviour
         buildTurret();
         buildBarricade();
         Attack();
+        AttackEnd();
     }
 
     void Move()
@@ -36,7 +41,7 @@ public class Player : MonoBehaviour
         float input = Input.GetAxisRaw("Horizontal");
         Vector3 vel = new Vector3(0, charRigid.velocity.y, 0);
 
-        if (input != 0)//ÀÔ·Â ÀÖÀ» ¶§
+        if (input != 0)//ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         {
             //Run -> true
             GetComponent<Animator>().SetBool("Run", true);
@@ -130,7 +135,7 @@ public class Player : MonoBehaviour
                 Debug.Log("CoolTime");
                 return;
             }
-            if (gameController.GetComponent<GameController>().gold < 5) {//µ·ÀÌºÎÁ·ÇÏ¸é
+            if (gameController.GetComponent<GameController>().gold < 5) {//ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½Ï¸ï¿½
                 Debug.Log("Not Enough Gold");
                 return;
             }
@@ -144,7 +149,7 @@ public class Player : MonoBehaviour
                 Debug.Log("CoolTime");
                 return;
             }
-            if (gameController.GetComponent<GameController>().gold < 10) {//µ·ÀÌºÎÁ·ÇÏ¸é
+            if (gameController.GetComponent<GameController>().gold < 10) {//ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½Ï¸ï¿½
                 Debug.Log("Not Enough Gold");
                 return;
             }
@@ -158,7 +163,7 @@ public class Player : MonoBehaviour
                 Debug.Log("CoolTime");
                 return;
             }
-            if (gameController.GetComponent<GameController>().gold < 15) {//µ·ÀÌºÎÁ·ÇÏ¸é
+            if (gameController.GetComponent<GameController>().gold < 15) {//ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½Ï¸ï¿½
                 Debug.Log("Not Enough Gold");
                 return;
             }
@@ -172,7 +177,7 @@ public class Player : MonoBehaviour
                 Debug.Log("CoolTime");
                 return;
             }
-            if (gameController.GetComponent<GameController>().gold < 20) {//µ·ÀÌºÎÁ·ÇÏ¸é
+            if (gameController.GetComponent<GameController>().gold < 20) {//ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½Ï¸ï¿½
                 Debug.Log("Not Enough Gold");
                 return;
             }
@@ -183,13 +188,23 @@ public class Player : MonoBehaviour
         }
     }
     void Attack () {
+        coolTime03 += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Z)) {
+            if (coolTime03 < 1f) {
+                return;
+            }
+            coolTime03 = 0f;
             GetComponent<Animator>().SetBool("Attack",true);
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
+            colliderObject = Instantiate(colliderPrefab, transform.position, transform.rotation);
+            colliderObject.transform.parent = this.transform;
+        }     
+    }
+    void AttackEnd () {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
             GetComponent<Animator>().SetBool("Attack", false);
-        }        
+            Destroy(colliderObject);
+        }
     }
     void Throw () {
 
