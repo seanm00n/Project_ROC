@@ -16,7 +16,7 @@ public class Gold : MonoBehaviour
     }
     private void OnCollisionEnter2D (Collision2D collision) {
         if (collision.gameObject.tag == "Player") {
-            gameManager.GetComponent<GameManager>().gold += goldValue;
+            gameManager.GetComponent<GameController>().gold += goldValue;
             Destroy(gameObject);
         }
     }

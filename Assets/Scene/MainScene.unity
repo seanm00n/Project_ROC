@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 195268989}
   - component: {fileID: 195268990}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f37a491a6660244ac303d570645fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
+  gold: 10
   mPrefab: {fileID: 4683441967690663941, guid: 9eb1218635c99074981160b13e328ed6, type: 3}
 --- !u!1 &262547561
 GameObject:
@@ -1289,6 +1289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc5ae7329669b447ab410350b91e11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldText: {fileID: 386600002}
+  gameController: {fileID: 195268990}
 --- !u!114 &386600002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1499,7 @@ MonoBehaviour:
   barricatePrefab04: {fileID: 1065964956577389901, guid: acd445e8a11b44f4890d5774cb8b9f56,
     type: 3}
   animator: {fileID: 435924678}
+  gameController: {fileID: 195268990}
   charSpeed: 5
   charAP: 4
   charHP: 20

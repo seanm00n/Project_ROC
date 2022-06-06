@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class UIText : MonoBehaviour
 {
     public Text goldText;
+    public GameController gameController;
     void Update()
     {
-        //goldText.text = "Gold : " + ;
+        goldText.text = "Gold : " + gameController.GetComponent<GameController>().gold;
     }
     
 }

@@ -2,16 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public int gold;//¿Á»≠
     public GameObject mPrefab;
     float ctime = 0f;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

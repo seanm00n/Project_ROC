@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject barricatePrefab03;//방어물
     public GameObject barricatePrefab04;//방어물
     public Animator animator;
+    public GameController gameController;
     public float charSpeed = 5f;
     public float charAP = 4f;
     public float charHP = 20f;
@@ -61,66 +62,124 @@ public class Player : MonoBehaviour
     void buildTurret()
     {
         coolTime01 += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if(coolTime01 > 1f) {
-                coolTime01 = 0f;
-                pos = transform.position;
-                pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
-                GameObject turret = Instantiate(turretPrefab01, pos, transform.rotation);
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            if (coolTime01 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 5) {
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            coolTime01 = 0f;
+            pos = transform.position;
+            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            GameObject turret = Instantiate(turretPrefab01, pos, transform.rotation);
+            gameController.GetComponent<GameController>().gold -= 5;
         }
         if (Input.GetKeyDown(KeyCode.W)) {
-            if (coolTime01 > 1f) {
-                coolTime01 = 0f;
-                pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
-                GameObject turret = Instantiate(turretPrefab02, pos, transform.rotation);
+            if (coolTime01 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 10) {
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            coolTime01 = 0f;
+            pos = transform.position;
+            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            GameObject turret = Instantiate(turretPrefab02, pos, transform.rotation);
+            gameController.GetComponent<GameController>().gold -= 10;
         }
         if (Input.GetKeyDown(KeyCode.E)) {
-            if (coolTime01 > 1f) {
-                coolTime01 = 0f;
-                pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
-                GameObject turret = Instantiate(turretPrefab03, pos, transform.rotation);
+            if (coolTime01 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 15) {
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            coolTime01 = 0f;
+            pos = transform.position;
+            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            GameObject turret = Instantiate(turretPrefab03, pos, transform.rotation);
+            gameController.GetComponent<GameController>().gold -= 15;
         }
         if (Input.GetKeyDown(KeyCode.R)) {
-            if (coolTime01 > 1f) {
-                coolTime01 = 0f;
-                pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
-                GameObject turret = Instantiate(turretPrefab04, pos, transform.rotation);
+            if (coolTime01 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 20) {
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            coolTime01 = 0f;
+            pos = transform.position;
+            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            GameObject turret = Instantiate(turretPrefab04, pos, transform.rotation);
+            gameController.GetComponent<GameController>().gold -= 20;
         }
     }
     void buildBarricade () {
         coolTime02 += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.A)) {
-            if (coolTime02 > 1f) {
-                coolTime02 = 0f;
-                pos = new Vector3(transform.position.x, -3.54f, transform.position.z);
-                GameObject barricade = Instantiate(barricatePrefab01, pos, transform.rotation);
+            if (coolTime02 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 5) {//돈이부족하면
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            gameController.GetComponent<GameController>().gold -= 5;
+            coolTime02 = 0f;
+            pos = new Vector3(transform.position.x, -3.54f, transform.position.z);
+            GameObject barricade = Instantiate(barricatePrefab01, pos, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.S)) {
-            if (coolTime02 > 1f) {
-                coolTime02 = 0f;
-                pos = new Vector3(transform.position.x, -3.54f, transform.position.z);
-                GameObject barricade = Instantiate(barricatePrefab02, pos, transform.rotation);
+            if (coolTime02 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 10) {//돈이부족하면
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            gameController.GetComponent<GameController>().gold -= 10;
+            coolTime02 = 0f;
+            pos = new Vector3(transform.position.x, -3.54f, transform.position.z);
+            GameObject barricade = Instantiate(barricatePrefab02, pos, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.D)) {
-            if (coolTime02 > 1f) {
-                coolTime02 = 0f;
-                pos = new Vector3(transform.position.x, -3.72f, transform.position.z);
-                GameObject barricade = Instantiate(barricatePrefab03, pos, transform.rotation);
+            if (coolTime02 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 15) {//돈이부족하면
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            gameController.GetComponent<GameController>().gold -= 15;
+            coolTime02 = 0f;
+            pos = new Vector3(transform.position.x, -3.72f, transform.position.z);
+            GameObject barricade = Instantiate(barricatePrefab03, pos, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.F)) {
-            if (coolTime02 > 1f) {
-                coolTime02 = 0f;
-                pos = new Vector3(transform.position.x, -3.72f, transform.position.z);
-                GameObject barricade = Instantiate(barricatePrefab04, pos, transform.rotation);
+            if (coolTime02 < 1f) {
+                Debug.Log("CoolTime");
+                return;
             }
+            if (gameController.GetComponent<GameController>().gold < 20) {//돈이부족하면
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            gameController.GetComponent<GameController>().gold -= 20;
+            coolTime02 = 0f;
+            pos = new Vector3(transform.position.x, -3.72f, transform.position.z);
+            GameObject barricade = Instantiate(barricatePrefab04, pos, transform.rotation);
         }
     }
     void Attack () {
