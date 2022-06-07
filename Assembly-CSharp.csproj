@@ -68,6 +68,7 @@
     <Compile Include="Assets\Script\Barricade.cs" />
     <Compile Include="Assets\Script\Camera.cs" />
     <Compile Include="Assets\Script\Bullet.cs" />
+    <Compile Include="Assets\Script\Button.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
