@@ -14,7 +14,7 @@ public class Monster : MonoBehaviour
     //string STATE; //상태 계속 검사해서 바뀌면 바로 SetBool(STATE, false) 해주기
     void Start()
     {
-        STATE = "Idle";
+        //STATE = "Idle";
     }
     void Update()
     {
