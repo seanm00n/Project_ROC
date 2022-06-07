@@ -11,6 +11,11 @@ public class Monster : MonoBehaviour
     public float monsterHP = 10f;
     public float monsterAP = 2f;
     bool isEncounter = false;
+    //string STATE; //상태 계속 검사해서 바뀌면 바로 SetBool(STATE, false) 해주기
+    void Start()
+    {
+        STATE = "Idle";
+    }
     void Update()
     {
         Move();//이동
@@ -27,6 +32,7 @@ public class Monster : MonoBehaviour
 
         if (monsterHP <= 0) {//사망처리
             GetComponent<Animator>().SetBool("Death", true);
+            //STATE = "Death";
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
                 animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
                 Destroy(gameObject);
