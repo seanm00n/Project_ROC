@@ -14,7 +14,7 @@ public class UIText : MonoBehaviour
     //public Nexus nexus;
     void Update()
     {
-        goldText.text = "Gold : " + gameController.GetComponent<GameController>().gold;
+        goldText.text = "" + gameController.GetComponent<GameController>().gold;
         //charText.text = ""+ player.GetComponent<Player>().charHP;
         //nexusText.text = ""+ nexus.GetComponent<Nexus>().nexusHP;
     }

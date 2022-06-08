@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject Nexus;
     public Text gaovText;
     public Text clearText;
+    public Text timeText;
     public Text monsterNumText;
     public GameObject nextButton;
     public GameObject exitButton;
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
     public int MaxMonsterNum;
     public int countMonsterDeath = 0; //do not touch this value in inspector
     float ctime = 0f;
+    float time = 0f;
 
     private void Start () {
         countMonsterDeath = 0;
@@ -37,7 +39,8 @@ public class GameController : MonoBehaviour
             genMob();
         }
         monsterNumText.text = "" + (MaxMonsterNum-countMonsterDeath);
-        
+        time += Time.deltaTime;
+        timeText.text = ""+(int)time;
     }
     void genMob () {
         ctime += Time.deltaTime;
