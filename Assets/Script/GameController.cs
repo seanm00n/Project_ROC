@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,15 +12,17 @@ public class GameController : MonoBehaviour
     public GameObject Nexus;
     public Text gaovText;
     public Text clearText;
+    public Text monsterNumText;
     public GameObject nextButton;
     public GameObject exitButton;
     public GameObject mainButton;
 
     public int MaxMonsterNum;
-    int countMonster = 0;
-    int countMonsterDeath = 0;
+    public int countMonsterDeath = 0; //do not touch this value in inspector
     float ctime = 0f;
+
     private void Start () {
+        countMonsterDeath = 0;
         gaovText.gameObject.SetActive(false);
         clearText.gameObject.SetActive(false);
         exitButton.SetActive(false);
@@ -30,16 +33,17 @@ public class GameController : MonoBehaviour
     {
         checkClear();
         checkGAOV();
-        if (countMonster < MaxMonsterNum) {
+        if (countMonsterDeath < MaxMonsterNum) {
             genMob();
         }
+        monsterNumText.text = "Monsters : " + (MaxMonsterNum-countMonsterDeath) + " / 15";
+        
     }
     void genMob () {
         ctime += Time.deltaTime;
         if (ctime > 3f) {//1초 쿨로 몬스터 소환
             ctime = 0;
             GameObject mob = Instantiate(mPrefab, transform.position, transform.rotation);
-            countMonster++;
         }
     }
     void checkClear () {

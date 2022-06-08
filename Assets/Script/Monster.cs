@@ -29,15 +29,11 @@ public class Monster : MonoBehaviour
         }
     }
     void checkHP () {
-
         if (monsterHP <= 0) {//»ç¸ÁÃ³¸®
             GetComponent<Animator>().SetBool("Death", true);
-            //STATE = "Death";
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
-                animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
-                Destroy(gameObject);
-                GameObject gold = Instantiate(GoldPrefab,transform.position, transform.rotation);
-            }
+            Destroy(gameObject);
+            GameObject.Find("GameController").GetComponent<GameController>().countMonsterDeath++;
+            GameObject gold = Instantiate(GoldPrefab, transform.position, transform.rotation);
         }
     }
     private void OnCollisionStay2D(Collision2D collision) {
