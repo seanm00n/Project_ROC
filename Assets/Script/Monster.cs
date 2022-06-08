@@ -6,15 +6,17 @@ public class Monster : MonoBehaviour
 {
     public Rigidbody2D monsterRigid;
     public GameObject GoldPrefab;
+    public GameObject colliderPrefab;
     public Animator animator;
     public float monsterSpeed = 5f;
     public float monsterHP = 10f;
     public float monsterAP = 2f;
     bool isEncounter = false;
+
     //string STATE; //상태 계속 검사해서 바뀌면 바로 SetBool(STATE, false) 해주기
     void Start()
     {
-        //STATE = "Idle";
+        transform.GetChild(0).gameObject.SetActive(false);
     }
     void Update()
     {
@@ -37,9 +39,9 @@ public class Monster : MonoBehaviour
         }
     }
     private void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.tag == "attackCollider") {
+/*        if (collision.gameObject.tag == "attackCollider") {
             Hit();
-        }
+        }*/
         if (collision.gameObject.tag == "Player" || 
             collision.gameObject.tag == "Turret" || 
             collision.gameObject.tag == "Barricade" ||
@@ -48,9 +50,17 @@ public class Monster : MonoBehaviour
         }
     }
     private void OnCollisionExit2D (Collision2D collision) {
+        if (collision.gameObject.tag == "Player" ||
+        collision.gameObject.tag == "Turret" ||
+        collision.gameObject.tag == "Barricade" ||
+        collision.gameObject.tag == "Nexus")
+        {
+            GetComponent<Animator>().SetBool("Attack", false);
+            transform.GetChild(0).gameObject.SetActive(false);
+        }//벗어난 충돌체가 적이면 Run으로 돌아가기
         isEncounter = false;
     }
-    void Hit () {
+/*    void Hit () {
         isEncounter = true;
         GetComponent<Animator>().SetBool("Hit", true);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
@@ -58,13 +68,15 @@ public class Monster : MonoBehaviour
             GetComponent<Animator>().SetBool("Hit", false);
             isEncounter = false;
         }
-    }
+    }*/
     void Attack () {
         isEncounter = true;
         GetComponent<Animator>().SetBool("Attack", true);
+        transform.GetChild(0).gameObject.SetActive(true);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
             GetComponent<Animator>().SetBool("Attack", false);
+            transform.GetChild(0).gameObject.SetActive(false);
             isEncounter = false;
         }
     }
