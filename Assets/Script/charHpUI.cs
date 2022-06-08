@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class hpUI : MonoBehaviour
+public class charHpUI : MonoBehaviour
 {
     public GameObject player;
 
