@@ -67,9 +67,9 @@
     <Compile Include="Assets\Script\GameController.cs" />
     <Compile Include="Assets\Script\cAttackCollider.cs" />
     <Compile Include="Assets\Script\Barricade.cs" />
+    <Compile Include="Assets\Script\hpUI.cs" />
     <Compile Include="Assets\Script\Camera.cs" />
     <Compile Include="Assets\Script\Bullet.cs" />
-    <Compile Include="Assets\Script\hpUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

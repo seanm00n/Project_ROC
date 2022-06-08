@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         if (countMonsterDeath < MaxMonsterNum) {
             genMob();
         }
-        monsterNumText.text = "Monsters : " + (MaxMonsterNum-countMonsterDeath) + " / 15";
+        monsterNumText.text = "" + (MaxMonsterNum-countMonsterDeath);
         
     }
     void genMob () {
