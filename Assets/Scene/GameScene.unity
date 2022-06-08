@@ -2653,7 +2653,8 @@ MonoBehaviour:
     type: 3}
   colliderPrefab: {fileID: 5658664973004035720, guid: 15ac22fc9d9a87b4ba02358d7c3ec180,
     type: 3}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 7337724115326617528, guid: 7e10a0671f5ac6c4f928d38fec20f0ae,
+    type: 3}
   animator: {fileID: 435924678}
   gameController: {fileID: 195268990}
   charSpeed: 5
