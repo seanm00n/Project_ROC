@@ -18,7 +18,7 @@ public class Turret : MonoBehaviour
         elapsedTimes += Time.deltaTime;
         if (spawnRate <= elapsedTimes) {
             elapsedTimes = 0f;
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0,1,0), transform.rotation);
         }
     }
     void checkHP () {

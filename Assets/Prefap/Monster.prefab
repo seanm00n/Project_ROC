@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4683441967690663941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.41, y: -4.04, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2623735622190866950}
@@ -154,7 +154,7 @@ MonoBehaviour:
   colliderPrefab: {fileID: 6031707905888281211, guid: bd7e442846cd60644b43bf60f68f36b3,
     type: 3}
   animator: {fileID: 1548503399}
-  monsterSpeed: 3
+  monsterSpeed: 2
   monsterHP: 10
   monsterAP: 2
 --- !u!95 &1548503399

@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
             }
             coolTime01 = 0f;
             pos = transform.position;
-            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
             GameObject turret = Instantiate(turretPrefab01, pos, transform.rotation);
             gameController.GetComponent<GameController>().gold -= 5;
         }
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
             }
             coolTime01 = 0f;
             pos = transform.position;
-            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
             GameObject turret = Instantiate(turretPrefab02, pos, transform.rotation);
             gameController.GetComponent<GameController>().gold -= 10;
         }
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             }
             coolTime01 = 0f;
             pos = transform.position;
-            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
             GameObject turret = Instantiate(turretPrefab03, pos, transform.rotation);
             gameController.GetComponent<GameController>().gold -= 15;
         }
@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
             }
             coolTime01 = 0f;
             pos = transform.position;
-            pos = new Vector3(transform.position.x, -2.6f, transform.position.z);
+            pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
             GameObject turret = Instantiate(turretPrefab04, pos, transform.rotation);
             gameController.GetComponent<GameController>().gold -= 20;
         }

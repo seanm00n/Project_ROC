@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     float time = 0f;
 
     private void Start () {
+        Time.timeScale = 1;
         countMonsterDeath = 0;
         gaovText.gameObject.SetActive(false);
         clearText.gameObject.SetActive(false);
