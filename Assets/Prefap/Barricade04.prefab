@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48b6e30a1613214ba00c56a87536d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barricadeHP: 10
+  barricadeHP: 150

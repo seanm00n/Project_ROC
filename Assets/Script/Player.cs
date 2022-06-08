@@ -73,21 +73,6 @@ public class Player : MonoBehaviour
                 Debug.Log("CoolTime");
                 return;
             }
-            if (gameController.GetComponent<GameController>().gold < 5) {
-                Debug.Log("Not Enough Gold");
-                return;
-            }
-            coolTime01 = 0f;
-            pos = transform.position;
-            pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
-            GameObject turret = Instantiate(turretPrefab01, pos, transform.rotation);
-            gameController.GetComponent<GameController>().gold -= 5;
-        }
-        if (Input.GetKeyDown(KeyCode.W)) {
-            if (coolTime01 < 1f) {
-                Debug.Log("CoolTime");
-                return;
-            }
             if (gameController.GetComponent<GameController>().gold < 10) {
                 Debug.Log("Not Enough Gold");
                 return;
@@ -95,10 +80,10 @@ public class Player : MonoBehaviour
             coolTime01 = 0f;
             pos = transform.position;
             pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
-            GameObject turret = Instantiate(turretPrefab02, pos, transform.rotation);
+            GameObject turret = Instantiate(turretPrefab01, pos, transform.rotation);
             gameController.GetComponent<GameController>().gold -= 10;
         }
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.W)) {
             if (coolTime01 < 1f) {
                 Debug.Log("CoolTime");
                 return;
@@ -110,10 +95,10 @@ public class Player : MonoBehaviour
             coolTime01 = 0f;
             pos = transform.position;
             pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
-            GameObject turret = Instantiate(turretPrefab03, pos, transform.rotation);
+            GameObject turret = Instantiate(turretPrefab02, pos, transform.rotation);
             gameController.GetComponent<GameController>().gold -= 15;
         }
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             if (coolTime01 < 1f) {
                 Debug.Log("CoolTime");
                 return;
@@ -125,8 +110,23 @@ public class Player : MonoBehaviour
             coolTime01 = 0f;
             pos = transform.position;
             pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
-            GameObject turret = Instantiate(turretPrefab04, pos, transform.rotation);
+            GameObject turret = Instantiate(turretPrefab03, pos, transform.rotation);
             gameController.GetComponent<GameController>().gold -= 20;
+        }
+        if (Input.GetKeyDown(KeyCode.R)) {
+            if (coolTime01 < 1f) {
+                Debug.Log("CoolTime");
+                return;
+            }
+            if (gameController.GetComponent<GameController>().gold < 30) {
+                Debug.Log("Not Enough Gold");
+                return;
+            }
+            coolTime01 = 0f;
+            pos = transform.position;
+            pos = new Vector3(transform.position.x, -3.6f, transform.position.z);
+            GameObject turret = Instantiate(turretPrefab04, pos, transform.rotation);
+            gameController.GetComponent<GameController>().gold -= 30;
         }
     }
     void buildBarricade () {
@@ -164,11 +164,11 @@ public class Player : MonoBehaviour
                 Debug.Log("CoolTime");
                 return;
             }
-            if (gameController.GetComponent<GameController>().gold < 15) {//���̺����ϸ�
+            if (gameController.GetComponent<GameController>().gold < 25) {//���̺����ϸ�
                 Debug.Log("Not Enough Gold");
                 return;
             }
-            gameController.GetComponent<GameController>().gold -= 15;
+            gameController.GetComponent<GameController>().gold -= 25;
             coolTime02 = 0f;
             pos = new Vector3(transform.position.x, -3.72f, transform.position.z);
             GameObject barricade = Instantiate(barricatePrefab03, pos, transform.rotation);
@@ -178,11 +178,11 @@ public class Player : MonoBehaviour
                 Debug.Log("CoolTime");
                 return;
             }
-            if (gameController.GetComponent<GameController>().gold < 20) {//���̺����ϸ�
+            if (gameController.GetComponent<GameController>().gold < 40) {//���̺����ϸ�
                 Debug.Log("Not Enough Gold");
                 return;
             }
-            gameController.GetComponent<GameController>().gold -= 20;
+            gameController.GetComponent<GameController>().gold -= 40;
             coolTime02 = 0f;
             pos = new Vector3(transform.position.x, -3.72f, transform.position.z);
             GameObject barricade = Instantiate(barricatePrefab04, pos, transform.rotation);

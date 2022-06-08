@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletRigid: {fileID: 21845829732226324}
   bulletSpeed: 5
-  bulletAP: 2
+  bulletAP: 5

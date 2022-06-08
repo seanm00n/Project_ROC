@@ -126,4 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 21845829732226320, guid: b45210ae4869e01468b9e64d74bf6572,
     type: 3}
-  turretHP: 15
+  turretHP: 30

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletRigid: {fileID: 7337724115326617532}
   bulletSpeed: 5
-  bulletAP: 2
+  bulletAP: 5
 --- !u!95 &2120205528
 Animator:
   serializedVersion: 4
