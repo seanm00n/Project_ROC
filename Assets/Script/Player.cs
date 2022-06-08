@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject barricatePrefab03;//��
     public GameObject barricatePrefab04;//��
     public GameObject colliderPrefab;
+    public GameObject bulletPrefab;
     GameObject colliderObject;
     public Animator animator;
     public GameController gameController;
@@ -195,8 +196,9 @@ public class Player : MonoBehaviour
             }
             coolTime03 = 0f;
             GetComponent<Animator>().SetBool("Attack",true);
-            colliderObject = Instantiate(colliderPrefab, transform.position, transform.rotation);
-            colliderObject.transform.parent = this.transform;
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            //colliderObject = Instantiate(colliderPrefab, transform.position, transform.rotation);
+            //colliderObject.transform.parent = this.transform;
         }     
     }
     void AttackEnd () {
