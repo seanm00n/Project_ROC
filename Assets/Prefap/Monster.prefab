@@ -155,7 +155,7 @@ MonoBehaviour:
     type: 3}
   animator: {fileID: 1548503399}
   monsterSpeed: 2
-  monsterHP: 15
+  monsterHP: 30
   monsterAP: 2
 --- !u!95 &1548503399
 Animator:
