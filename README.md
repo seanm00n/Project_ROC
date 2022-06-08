@@ -15,7 +15,7 @@
  - Z : 공격
 
 # 22.05.15
- - 스크립트 생성, .gitignore 생성
+ - 스크립트 생성, .gitignore 생성, 개발 
  - .gitignore 수정사항 : Music, Sprite 폴더 해제
 
 # 22.06.08
